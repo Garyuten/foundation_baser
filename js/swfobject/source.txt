@@ -1,0 +1,8 @@
+	<script type="text/javascript">
+	// <![CDATA[
+		var flashvars = {};
+		var params = {wmode :"transparent"};
+		var attributes = {id: "mainvidual", name: "mainvidual"};
+		swfobject.embedSWF("index.swf", "flashcontent", "800", "600", "10.0.12", "/resource/script/swfobject/expressInstall.swf", flashvars, params, attributes);
+	// ]]>
+	</script>

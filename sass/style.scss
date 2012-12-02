@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/**
+ * CSSインポート
+ */
+
+@import "app.css";
+@import "class.css";
+
+
+/**
+ * baseerCMS Class
+ */
+
+#gHeader {
+	form {
+		input[type="text"] {
+			margin-top:7px;
+		}
+	}
+}
+
+.content ul ul {
+	margin: 0 0 5px 18px;
+}
+
+
+
+/**
+ * home
+ */
+
+ /* slide */
+#featured img { display:none; position: absolute;}
+#featured img:first-child { display:block;}
+
+
