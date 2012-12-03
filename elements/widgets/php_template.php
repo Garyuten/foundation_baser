@@ -22,7 +22,7 @@
 ?>
 <div class="widget widget-php-template widget-php-template-<?php echo $id ?>">
 <?php if($name && $use_title): ?>
-<h2><?php echo $name ?></h2>
+<h4><?php echo $name ?></h4>
 <?php endif ?>
 <?php $bcBaser->element('widgets'.DS.$template, array(), false, $subDir) ?>
 </div>

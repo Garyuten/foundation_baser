@@ -1,7 +1,8 @@
 <?php
 //ブログのタグリスト出力用
 ?>
+<?php //print_r($blog->getTag($post,'')); ?>
 <?php if(!empty($blog->blogContent['tag_use'])
 				&& $blog->getTag($post,'') !==''  ): ?>
-<div class="Tag"><dl><dt>タグ：</dt><dd><?php echo $blog->getTag($post,'') ?></dd></dl></div>
+<dl class="sub-nav tag"><dt>Tag : </dt><dd><?php echo $blog->getTag($post,'</dd><dd>') ?></dd></dl>
 <?php endif ?>

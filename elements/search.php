@@ -25,12 +25,16 @@ if(!empty($this->passedArgs['num'])) {
 	$url = array('plugin' => null, 'controller' => 'contents');
 }
 ?>
-<div class="section search-box">
-<?php echo $bcForm->create('Content', array('type' => 'get', 'action' => 'search', 'url' => $url)) ?>
-<?php if(unserialize($bcBaser->siteConfig['content_categories'])) : ?>
-<?php echo $bcForm->input('Content.c', array('type' => 'select', 'options' => unserialize($bcBaser->siteConfig['content_categories']), 'empty' => 'カテゴリ： 指定しない　')) ?>
-<?php endif ?>
-<?php echo $bcForm->input('Content.q') ?>
-<?php echo $bcForm->submit('検索', array('div'=>false)) ?>
-<?php echo $bcForm->end() ?>
+<div class="row collapse search-box">
+	<?php echo $bcForm->create('Content', array('type' => 'get', 'action' => 'search', 'url' => $url)) ?>
+		<div class="eight mobile-three columns">
+			<?php if(unserialize($bcBaser->siteConfig['content_categories'])) : ?>
+			<?php //echo $bcForm->input('Content.c', array('type' => 'select', 'options' => unserialize($bcBaser->siteConfig['content_categories']), 'empty' => 'カテゴリ： 指定しない　')) ?>
+			<?php endif ?>
+			<?php echo $bcForm->input('Content.q', array('placeholder'=>'search keyword')) ?>
+		</div>
+		<div class="four mobile-one columns">
+			<?php echo $bcForm->submit('検索', array('div'=>false, 'class'=>'postfix small button')) ?>
+		</div>
+	<?php echo $bcForm->end() ?>
 </div>

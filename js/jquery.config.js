@@ -1,9 +1,11 @@
 // jQuery
 
 $(window).load(function(){
-
+	//スライドショー
 	$('#featured').orbit();
-	
+
+	//フォーム要素
+	//$("#main form input, #main form select").foundationCustomForms();
 	
 	//リンクへのclass設定 (外部リンク、ファイルへのリンク
 	var Location = location.href;

@@ -34,7 +34,7 @@ if(isset($blogContent)){
 if(empty($depth)) {
 	$depth = 1;
 }
-$actionUrl = '/blog/get_categories/'.$id.'/'.$limit.'/'.$view_count.'/'.$depth;
+$actionUrl = '/blog/blog/get_categories/'.$id.'/'.$limit.'/'.$view_count.'/'.$depth;
 if($by_year) {
 	$actionUrl .= '/year';
 }
@@ -45,32 +45,15 @@ App::import('Helper','Blog.Blog');
 $blog = new BlogHelper();
 ?>
 
-<!-- /j2s/ -->
-<div class="widget widget-blog-categories-archives widget-blog-categories-archives-<?php echo $id ?> blog-widget widget-blog-category-year-archives">
+
+<div class="widget widget-blog-categories-archives widget-blog-categories-archives-<?php echo $id ?> blog-widget">
 <?php if($name && $use_title): ?>
-<h2><?php echo $name ?></h2>
+<h5><?php echo $name ?></h5>
 <?php endif ?>
 <?php if($by_year): ?>
-	<ul class="list-category-year">
+	<ul class="side-nav">
 	<?php foreach($categories as $key => $category): ?>
-		<?php
-		
-		$currentUrl = $this->here;
-		$currentUrl = str_replace('/index.php/' ,'',$currentUrl);
-		$url = $blogContent['BlogContent']['name'].'/archives/date/' . $key ;
-		if(!empty($this->params['named']) ) {
-			$pYear = $this->params['named']['year'];
-		}
-		if( $currentUrl == $url) {
-			$class = ' current';
-		} elseif(!empty($pYear) && $pYear == $key ) {
-			$class = ' selected currentParent';
-		} else {
-			$class = '';
-		}
-		?>
-		<li class="category-year category-year-<?php echo $key.$class ?>"><span><?php $bcBaser->link($key.'年', array('plugin' => null, 'controller' => $blogContent['BlogContent']['name'], 'action' => 'archives', 'date', $key)) ?></span>
-		
+		<li class="category-year"><span><?php $bcBaser->link($key.'年', array('plugin' => null, 'controller' => $blogContent['BlogContent']['name'], 'action' => 'archives', 'date', $key)) ?></span>
 		<?php echo $blog->getCategoryList($category, $depth, $view_count, array('named' => array('year' => $key))) ?>
 		</li>
 	<?php endforeach ?>

@@ -33,14 +33,10 @@ if(Configure::read('AgentPrefix.on')) {
 <?php endif; ?>
 <?php /* フォーム本体 */ ?>
 
-<?php /*
 <table cellpadding="0" cellspacing="0" class="row-table-01">
-  <?php $bcBaser->element('mail_input', array('blockStart' => 2, 'blockEnd' => 7)) ?>
-</table>
-*/ ?>
-<table cellpadding="0" cellspacing="0" class="row-table-01">
-	<?php $bcBaser->element('mail_input', array('blockStart' => 1)) ?><?php if(!$freezed && $mailContent['MailContent']['auth_captcha']): ?>
-  <tr class="auth-captcha clearfix">
+	<?php $bcBaser->element('mail_input', array('blockStart' => 1)) ?>
+	<?php if(!$freezed && $mailContent['MailContent']['auth_captcha']): ?>
+  <tr class="auth-captcha">
     <th>画象認証</th>
     <td>
     <?php $bcBaser->img($prefix.'/'.$mailContent['MailContent']['name'] . '/captcha', array('alt' => '認証画像', 'class' => 'auth-captcha-image')) ?>
@@ -54,13 +50,13 @@ if(Configure::read('AgentPrefix.on')) {
 
 <?php /* 送信ボタン */ ?>
 <div class="submit">
-<?php if($this->action=='index'): ?>
+<?php /* if($this->action=='index'): ?>
 	<input name="resetdata" value="　取り消す　" type="reset" class="btn-gray button" />
-<?php endif; ?>
+<?php endif; */ ?>
 <?php if($freezed): ?>
-	<?php echo $mailform->submit('　送信する　', array('div' => false, 'class' => 'btn-red button', 'id' => 'MessageSubmit'))  ?>
+	<?php echo $mailform->submit('　送信する　', array('div' => false, 'class' => 'button success large', 'id' => 'MessageSubmit'))  ?>
 <?php elseif($this->action != 'submit'): ?>
-	<?php echo $mailform->submit('　入力内容を確認する　', array('div' => false, 'class' => 'btn-orange button', 'id' => 'MessageConfirm'))  ?>
+	<?php echo $mailform->submit('　入力内容を確認する　', array('div' => false, 'class' => 'button success large', 'id' => 'MessageConfirm'))  ?>
 <?php endif; ?>
 </div>
 

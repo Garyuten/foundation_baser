@@ -2,6 +2,7 @@
 /**
  * デフォルトレイアウト
  */
+
 ?>
 <!DOCTYPE html>
 
@@ -27,8 +28,7 @@
     <!-- Included CSS Files -->
 		<?php
 		$bcBaser->css(array(
-				'app',
-				'class',
+				'style',
 				'colorbox/colorbox'
 		))
 		?>
@@ -36,10 +36,13 @@
     <!-- Included JavaScript Files -->
 		<?php
 		$bcBaser->js(array(
-				'foundation/modernizr.foundation'
+				'foundation/modernizr.foundation',
+				'foundation/jquery'
 		))
 		?>
-		<?php //$bcBaser->scripts() ?>
+		<?php $bcBaser->scripts() ?>
+
+    <!-- google analytics -->
 		<?php $bcBaser->element('google_analytics') ?>
     <!-- IE Fix for HTML5 Tags -->
     <!--[if lt IE 9]>
@@ -49,71 +52,52 @@
 		))
 		?>
     <![endif]-->
-		<?php $bcBaser->scripts() ?>
-		<?php $bcBaser->element('google_analytics') ?>
 	</head>
   <body>
 		<?php $bcBaser->header() ?>
-		aaa
 		<?php if ($bcBaser->isTop()): //HOME専用  ?>
 			<?php //$bcBaser->element('home') ?>
-
 			<?php include(dirname(__FILE__) . '/../elements/home.php'); ?>
-		<?php else : //HOME以外   ?>
 
-			<header id="ctgHeader">
-				<p class="CategoryTitle">
-					<?php if (empty($blog)) : //ページ専用  ?>
-						<?php
-						echo $CategoryTitle;
-						?>
-					<?php else: ?>
-						<a href="<?php $bcBaser->url('/' . $Path[1]); ?>"><?php $blog->title(); //ブログタイトル     ?></a></p>
-				<?php endif; ?>
-			</header>
+		<?php else : //HOME以外   ?>
 			<?php if (empty($blog)) : //ページ専用  ?>
 				<?php
 				include(dirname(__FILE__) . '/../elements/page.php');
-				include(dirname(__FILE__) . '/../elements/sidebar.php');
+				//include(dirname(__FILE__) . '/../elements/sidebar.php');
 				?>
+
 			<?php else : //ブログ専用  ?>
 				<?php $bcBaser->content() ?>
 				<?php
 				//$bcBaser->element('sidebar');
-				include(dirname(__FILE__) . '/../elements/sidebar.php');
+				//include(dirname(__FILE__) . '/../elements/sidebar.php');
 				?>
+
 			<?php endif; ?>
 		<?php endif; ?>
-		<!-- /.WrapContents -->
-	</div>
-	<!-- /#content -->
-</div>
-<hr />
-<?php $bcBaser->footer() ?>
 
+		<?php $bcBaser->footer() ?>
 
-
-<!-- Included JS Files (Uncompressed) -->
-<?php
-$bcBaser->js(array(
-		'foundation/jquery',
-		'foundation/jquery.foundation.accordion',
-		'foundation/jquery.foundation.alerts',
-		'foundation/jquery.foundation.buttons',
-		'foundation/jquery.foundation.forms',
-		'foundation/jquery.foundation.mediaQueryToggle',
-		'foundation/jquery.foundation.navigation',
-		'foundation/jquery.foundation.orbit',
-		'foundation/jquery.foundation.reveal',
-		'foundation/jquery.foundation.tabs',
-		'foundation/jquery.foundation.tooltips',
-		'foundation/jquery.foundation.topbar',
-		'foundation/jquery.placeholder',
-		'foundation/app',
-		'jquery.colorbox-min',
-		'jquery.config'
-))
-?>
-<?php $bcBaser->func() ?>
-</body>
+		<!-- Included JS Files (Uncompressed) -->
+		<?php
+		$bcBaser->js(array(
+				'foundation/jquery.foundation.accordion',
+				'foundation/jquery.foundation.alerts',
+				'foundation/jquery.foundation.buttons',
+				'foundation/jquery.foundation.forms',
+				'foundation/jquery.foundation.mediaQueryToggle',
+				'foundation/jquery.foundation.navigation',
+				'foundation/jquery.foundation.orbit',
+				'foundation/jquery.foundation.reveal',
+				'foundation/jquery.foundation.tabs',
+				'foundation/jquery.foundation.tooltips',
+				'foundation/jquery.foundation.topbar',
+				'foundation/jquery.placeholder',
+				'foundation/app',
+				'jquery.colorbox-min',
+				'jquery.config'
+		))
+		?>
+		<?php $bcBaser->func() ?>
+	</body>
 </html>

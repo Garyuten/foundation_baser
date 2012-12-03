@@ -3,10 +3,10 @@
  * Page専用テンプレート
  */
 ?>
-<?php //echo $html->css("page", null, null, false); //page用のCSSを出力   ?>
+<?php //echo $html->css("page", null, null, false); //page用のCSSを出力         ?>
 <?php
 //テーマファイルパスの取得
-$themed = $bcBaser->getUrl( "/themed/".$this->theme);
+$themed = $bcBaser->getUrl("/themed/" . $this->theme);
 
 $CategoryTitle = '';
 $CategoryUrl = '';
@@ -27,78 +27,36 @@ echo '<!-- ';
 //	var_dump($bcPage->data['PageCategory']);
 echo '-->';
 ?>
-<div id="main">
-  <div class="Wrap Section SectionParent">
-		<section class="Wrap Section SectionParent">
-			<header>
+
+
+<?php if ($CategoryTitle != ''): ?>
+	<!-- Content Header -->
+	<div id="contentHeader" class="row">
+		<div class="twelve columns">
+			<header class="panel radius">
+				<h1><?php echo $CategoryTitle; ?></h1>
 			</header>
-
-			
-		</section>
-		<?php if ( isset($Ctg) && !empty($Ctg) && $Path[1] !== 'contact' ): //お問い合わせページ以外で表示 ?>
-	  <div class="BannerContact">
-	    <a href="<?php $bcBaser->url('/'); ?>contact/index" title="インターネットお問い合わせ窓口はこちら"><img src="/_shared/img/banner_contact.png" alt="法律相談のご予約・お問い合わせはこちら 電話番号092-714-3450 受付時間は9時から17時15分まで（土日祝祭日・年末年始除く）"></a>
-	  </div>
-		<?php endif; ?>
-  </div>
-</div>
-
+		</div>
+	</div>
+	<!-- End Content Header -->
+<?php endif ?>
 
 <!-- Content -->
-    <div class="row">
-      <div class="twelve columns">
+<div id="content" class="row">
+	<section id="main" class="nine columns">
+		<header>
+			<?php if ($bcBaser->getContentsTitle() != ''): ?>
+				<h1><?php echo $bcBaser->contentsTitle(); ?></h1>
+			<?php endif ?>
+		</header>
+		<hr>
+		<div class="content">
+			<?php $bcBaser->content(); //ページの中身 ?>
+		</div>
+	</section>
 
-				<header class="panel radius">
-
-				<?php if ($bcBaser->getContentsTitle() != ''): ?>
-	        <h1><?php echo $bcBaser->contentsTitle(); ?></h1>
-				<?php endif ?>
-				</header>
-      </div>
-    </div>
-    <!-- End Content -->
-
-    <div class="row">
-      <!-- Content -->
-      <section id="main" class="nine columns">
-				<header>
-					<h2>Page Title</h2>
-				</header>
-				<hr>
-				<div class="content">
-					<?php $bcBaser->content(); //ページの中身 ?>
-				</div>
-      </section>
-
-      <div id="side" class="three columns">
-				<h4>ローカルメニュー</h4>
-				<ul class="side-nav">
-					<li><a href="#">page name</a></li>
-					<li><a href="#">page name</a></li>
-					<li><a href="#">page name</a></li>
-					<li><a href="#">page name</a></li>
-					<li><a href="#">page name</a></li>
-					<li><a href="#">page name</a></li>
-				</ul>
-				<div class="hide-for-small">
-					<a href="#">
-						<div class="panel radius callout" align="center">
-							<strong>商品のご予約はこちらから</strong>
-						</div>
-					</a>
-
-					<a href="#">
-						<div class="panel radius callout" align="center">
-							<strong>商品のご予約はこちらから</strong>
-						</div>
-					</a>
-
-					<a href="#">
-						<div class="panel radius callout" align="center">
-							<strong>お問い合わせ窓口はこちらから</strong>
-						</div>
-					</a>
-				</div>
-      </div>
-      <!-- End Content -->
-    </div>
+	<?php
+	include(dirname(__FILE__) . '/../elements/sidebar.php'); //サイドバー読み込み
+	?>
+</div>
+<!-- End Content -->

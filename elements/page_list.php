@@ -20,7 +20,8 @@
 $pages = $bcBaser->getPageList($categoryId);
 $current = str_replace($this->base, '', $this->here);
 ?>
-<ul class="clearfix">
+
+<dl class="vertical tabs">
 <?php
 if(!empty($pages)){
 	foreach($pages as $key => $page){
@@ -33,17 +34,19 @@ if(!empty($pages)){
 			$classies[] = 'last';
 		}
 		if($current == $page['url']) {
-			$classies[] = 'current';
+			//$classies[] = 'current';
+			$classies[] = 'active';
 		}
 		if($classies) {
 			$class = ' class="'.implode(' ', $classies).'"';
 		}
 		if($this->base == '/index.php' && $page['url'] == '/'){
-			echo '<li'.$class.'>'.str_replace('/index.php','',$bcBaser->getLink($page['title'],$page['url'])).'</li>';
+			echo '<dd'.$class.'>'.str_replace('/index.php','',$bcBaser->getLink($page['title'],$page['url'])).'</dd>';
 		}else{
-			echo '<li'.$class.'>'.$bcBaser->getLink($page['title'],$page['url']).'</li>';
+			echo '<dd'.$class.'>'.$bcBaser->getLink($page['title'],$page['url']).'</dd>';
 		}
 	}
 }
 ?>
-</ul>
+</dl>
+

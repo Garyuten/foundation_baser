@@ -19,9 +19,12 @@
  * @lastmodified	$Date$
  * @license			http://basercms.net/license/index.html
  */
-?>
 
-<ul class="global-menu<?php if(isset($footer) && $footer): ?> FooterGlobalMenu<?php endif ?>">
+if(!empty($class)){
+
+}
+?>
+<ul class="global-menu <?php if(isset($class) && $class){ echo $class; } ?>">
 	<?php if(empty($menuType)) $menuType = '' ?>
 		<?php $globalMenus = $bcBaser->getMenus() ?>
 		<?php if(!empty($globalMenus)): ?>

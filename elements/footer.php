@@ -2,14 +2,24 @@
 /**
  * フッター
  */
-
 //テーマファイルパスの取得
-$themed = $bcBaser->getUrl( "/themed/".$this->theme);
-
+$themed = $bcBaser->getUrl("/themed/" . $this->theme);
 ?>
-<hr />
-<div id="topLink"><a href="#pagetop"><img src="<?php echo $themed; ?>/img/pgtop.png" alt="このページ上部へ"></a></div>
 
+<div class="row">
+	<div class="twelve columns">
+		<div id="topLink" class='right'><a href="#pagetop">go to page top</a></div>
+	</div>
+	<hr />
+</div>
+
+<!-- breadcrumbs -->
+<div class="row breadcrumbs">
+	<div class="twelve columns">
+		<?php $bcBaser->element('crumbs'); ?>
+	</div>
+</div>
+<!-- End breadcrumbs -->
 
 <!-- Call to Action Panel -->
 <div class="row">
@@ -32,35 +42,17 @@ $themed = $bcBaser->getUrl( "/themed/".$this->theme);
 </div>
 
 
-<!-- breadcrumbs -->
-<div class="row">
-	<div class="twelve columns">
-		<ul class="breadcrumbs">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Features</a></li>
-			<li class="unavailable"><a href="#">Gene Splicing</a></li>
-			<li class="current"><a href="#">Home</a></li>
-		</ul>
-	</div>
-</div>
-<!-- End breadcrumbs -->
-
 <!-- Footer -->
 
 <footer class="row">
 	<div class="twelve columns">
 		<hr />
 		<div class="row">
-			<div class="six columns">
+			<div class="five columns">
 				<address>&copy; Copyright CGFM LLC. All Rights Reserved.</address>
 			</div>
-			<div class="six columns">
-				<ul class="link-list right">
-					<li><a href="#">Link 1</a></li>
-					<li><a href="#">Link 2</a></li>
-					<li><a href="#">Link 3</a></li>
-					<li><a href="#">Link 4</a></li>
-				</ul>
+			<div class="seven columns">
+				<?php $bcBaser->element('global_menu' ,array('class'=>'link-list right')); ?>
 			</div>
 		</div>
 	</div>
