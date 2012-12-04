@@ -2,7 +2,9 @@
 
 $(window).load(function(){
 	//スライドショー
-	$('#featured').orbit();
+	if( $('#featured').length ) {
+		$('#featured').orbit();
+	}
 
 	//フォーム要素
 	//$("#main form input, #main form select").foundationCustomForms();
