@@ -38,28 +38,28 @@ $themed = $bcBaser->getUrl("/themed/" . $this->theme);
 		<div class="row">
 
 			<!-- Thumbnails -->
-			<div class="three mobile-two columns">
+			<div class="three columns">
 				<img src="<?php echo $themed; ?>/img/dummy-w400h300.png" alt="" />
 				<div class="panel">
 					<h4>Description</h4>
 					<p>説明が入ります。説明が入ります。説明が入ります。説明が入ります。説明が入ります。</p>
 				</div>
 			</div>
-			<div class="three mobile-two columns">
+			<div class="three columns">
 				<img src="<?php echo $themed; ?>/img/dummy-w400h300.png" alt="" />
 				<div class="panel">
 					<h4>Description</h4>
 					<p>説明が入ります。説明が入ります。説明が入ります。説明が入ります。説明が入ります。</p>
 				</div>
 			</div>
-			<div class="three mobile-two columns">
+			<div class="three columns">
 				<img src="<?php echo $themed; ?>/img/dummy-w400h300.png" alt="" />
 				<div class="panel">
 					<h4>Description</h4>
 					<p>説明が入ります。説明が入ります。説明が入ります。説明が入ります。説明が入ります。</p>
 				</div>
 			</div>
-			<div class="three mobile-two columns">
+			<div class="three columns">
 				<img src="<?php echo $themed; ?>/img/dummy-w400h300.png" alt="" />
 				<div class="panel">
 					<h4>Description</h4>
