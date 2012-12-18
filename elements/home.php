@@ -84,7 +84,7 @@ $themed = $bcBaser->getUrl("/themed/" . $this->theme);
 				<h4><a href="<?php $bcBaser->url('/'); ?>info/index" title="お知らせ一覧はこちら">News</a></h4><hr/>
 				<?php $bcBaser->feed(2); ?>
 
-				<h4><a href="<?php $bcBaser->url('/'); ?>info/index" title="baserCMS一覧はこちら">baserCMS News</a></h4><hr/>
+				<h4><a href="http://basercms.net/news/" target='_blank' title="baserCMSニュース一覧はこちら">baserCMS News</a></h4><hr/>
 				<?php $bcBaser->feed(1); ?>
 				<!-- End Feed -->
 			</div>
